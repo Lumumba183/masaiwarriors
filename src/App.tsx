@@ -347,11 +347,16 @@ export default function App() {
               className="h-16 w-16 rounded-full object-cover mb-6"
             />
             <p className="label-accent mb-4">Luxury East African Safaris</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#f3e9d8] leading-tight mb-6 font-heading">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-[#d4a03a] tracking-wide leading-tight mb-2 font-heading uppercase">
+              Maasai Warriors
+              <br />
+              Tours &amp; Safaris
+            </h1>
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#f3e9d8] leading-tight mb-6 font-heading">
               Discover the Wild
               <br />
               <span style={{ color: "#d4a03a" }}>Heart of Africa</span>
-            </h1>
+            </h2>
             <p className="text-[#f3e9d8]/80 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
               Experience unforgettable safari adventures across Kenya, Tanzania,
               Uganda, and Rwanda. Expertly crafted journeys that connect you with
