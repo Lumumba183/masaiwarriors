@@ -25,6 +25,7 @@ import {
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Safaris", href: "#safaris" },
+  { label: "About Us", href: "#about" },
   { label: "Experiences", href: "#experiences" },
   { label: "Destinations", href: "#destinations" },
   { label: "Journal", href: "#journal" },
@@ -475,6 +476,230 @@ export default function App() {
             >
               Inquire Now <ArrowRight size={16} />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ABOUT US ── */}
+      <section id="about" className="py-20 sm:py-28 px-4 bg-[#1a1209]">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16 reveal">
+            <p className="label-accent mb-4">Our Story</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f3e9d8] font-heading">
+              Meet Joseph: Your Maasai Safari Guide
+            </h2>
+          </div>
+
+          {/* Hero Story Card */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
+            <div className="reveal">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/joseph-safari.jpg"
+                  alt="Joseph - Maasai Safari Guide"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-[#d4a03a] flex items-center justify-center">
+                  <Compass size={24} className="text-[#1a1209]" />
+                </div>
+                <div>
+                  <p className="font-bold text-[#f3e9d8]">Joseph</p>
+                  <p className="text-sm text-[#d4a03a]">Founder & Lead Guide</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6 reveal">
+              <p className="text-[#f3e9d8]/90 text-base leading-relaxed">
+                I was born in the shadow of Masailand's holy ground. I grew up a Maasai boy herding cattle with my father. At 12, we walked for hours to a livestock market to sell one cow so I could pay school fees. One cow. One future. That walk taught me sacrifice — and that education was the new path for our people.
+              </p>
+
+              <h3 className="text-xl font-bold text-[#d4a03a] mt-8">
+                From Herding Cattle to Guiding Souls
+              </h3>
+              <p className="text-[#f3e9d8]/90 text-base leading-relaxed">
+                Today I'm a professional safari guide, a trained naturalist, and a Cambridge-trained ornithological guide — but first, I'm a Maasai. I don't just show tourists animals. I show them stories. I'll teach you which tree is which and for what use, how Maasai warriors read tracks in the dust, and why Lake Elementaita is holy to our people.
+              </p>
+              <p className="text-[#f3e9d8]/90 text-base leading-relaxed">
+                My journey from that barefoot boy walking to market led me to work alongside <strong className="text-[#d4a03a]">Sir David Attenborough</strong> on BBC documentary projects across Africa. I've studied ornithology at Cambridge University and appeared in Hollywood productions filmed on our sacred lands — including <em>Tomb Raider</em> and <em>Out of Africa</em>. But I always returned home. Because this land — the Rift Valley, the acacia forests, the flamingo-filled lakes — is where I belong.
+              </p>
+              <p className="text-[#f3e9d8]/90 text-base leading-relaxed italic">
+                Maasai Warriors Safaris was born from that boy who walked to market and the man my father believed I could become. When you travel with me, you don't get a guide. You get a son of the land.
+              </p>
+              <p className="text-2xl font-bold text-[#d4a03a] mt-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                Karibu. Welcome home.
+              </p>
+            </div>
+          </div>
+
+          {/* Why Choose Us */}
+          <div className="mb-20">
+            <div className="text-center mb-12 reveal">
+              <p className="label-accent mb-4">Why Travel With Us</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#f3e9d8] font-heading">
+                Stories, Science & Soul
+              </h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "400+ Bird Species",
+                  desc: "From Lake Elementaita's flamingos to the secretive Cinnamon-breasted Bunting. I know where the rare ones hide.",
+                  icon: <Camera size={28} className="text-[#d4a03a]" />,
+                },
+                {
+                  title: "Authentic Maasai Culture",
+                  desc: "Walk with a true Maasai warrior. Learn how we read the landscape, which plants heal, and why we call the hills around Elementaita sacred.",
+                  icon: <Users size={28} className="text-[#d4a03a]" />,
+                },
+                {
+                  title: "Dawn Chorus Walks",
+                  desc: "We start at 6:00 AM in the acacia. My ears were trained by herding cattle in silence. I bring a spotting scope, binoculars, and 10+ years of field notes.",
+                  icon: <Sun size={28} className="text-[#d4a03a]" />,
+                },
+                {
+                  title: "The Black Heron",
+                  desc: 'We call it the "umbrella bird" — it spreads its wings to fish, creating shade on the water. Like my father, it creates shade so life can grow underneath.',
+                  icon: <Moon size={28} className="text-[#d4a03a]" />,
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#f3e9d8]/5 border border-[#f3e9d8]/10 rounded-xl p-6 hover:border-[#d4a03a]/30 transition-all duration-300 reveal"
+                >
+                  <div className="mb-4">{item.icon}</div>
+                  <h4 className="text-lg font-bold text-[#f3e9d8] mb-2">{item.title}</h4>
+                  <p className="text-sm text-[#f3e9d8]/70 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Safari Experiences */}
+          <div className="mb-20">
+            <div className="text-center mb-12 reveal">
+              <p className="label-accent mb-4">What We Offer</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#f3e9d8] font-heading">
+                Kenya Safari Experiences
+              </h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Wildlife Safaris", desc: "Big Five game drives in Kenya's premier national parks", icon: <Compass size={24} /> },
+                { title: "Birding Safaris", desc: "Guided by a Cambridge-trained ornithologist with 400+ local species expertise", icon: <Camera size={24} /> },
+                { title: "Cultural Safaris", desc: "Authentic Maasai cultural immersion and storytelling", icon: <Users size={24} /> },
+                { title: "Mountaineering", desc: "Trek Kenya's dramatic Rift Valley landscapes", icon: <MapPin size={24} /> },
+                { title: "Walking & Hiking", desc: "Track wildlife on foot with a trained Maasai naturalist", icon: <Sun size={24} /> },
+                { title: "Photography Tours", desc: "Capture the magic of East Africa with expert guidance", icon: <Camera size={24} /> },
+              ].map((exp, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 p-5 rounded-xl bg-[#f3e9d8]/5 border border-[#f3e9d8]/10 hover:border-[#d4a03a]/30 transition-all reveal"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-[#d4a03a]/10 flex items-center justify-center text-[#d4a03a] shrink-0">
+                    {exp.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#f3e9d8] mb-1">{exp.title}</h4>
+                    <p className="text-sm text-[#f3e9d8]/70">{exp.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonials */}
+          <div className="mb-20">
+            <div className="text-center mb-12 reveal">
+              <p className="label-accent mb-4">What Travelers Say</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#f3e9d8] font-heading">
+                Words From Our Guests
+              </h3>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  quote: "Joseph was the best guide we had in Africa so far, and we have travelled throughout Southern and East Africa a lot. He is funny and knowledgeable, full of great stories, honest and proud and punctual and dignified and friendly and kind. He is the antithesis to all the uninformed guides we have encountered.",
+                  author: "Fiver Löcker",
+                  role: "Author, Cape to Cairo",
+                },
+                {
+                  quote: "I met Joseph in 2009 on my first safari and have now had the privilege of being guided by him seven times. Walking to Lake Elementaita with Joseph has always been a highlight. It has been fascinating to learn about Maasai customs and traditional uses of plants from a Maasai warrior, resplendent in his red robes.",
+                  author: "Sue Miller",
+                  role: "Seven-Time Safari Guest",
+                },
+                {
+                  quote: "Right here, right now — despite the sun blazing down on the dried-out grass — I understand how a place as foreign as this can become home. It feels like I can see forever across the pale sky and the wild plain... It seems like a good place to be buried.",
+                  author: "Fiver Löcker",
+                  role: "At Lake Elementaita with Joseph",
+                },
+              ].map((t, i) => (
+                <div
+                  key={i}
+                  className="bg-[#f3e9d8]/5 border border-[#f3e9d8]/10 rounded-xl p-6 hover:border-[#d4a03a]/30 transition-all reveal"
+                >
+                  <p className="text-[#f3e9d8]/80 text-sm leading-relaxed mb-6 italic">
+                    "{t.quote}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#d4a03a]/20 flex items-center justify-center">
+                      <User size={18} className="text-[#d4a03a]" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#f3e9d8] text-sm">{t.author}</p>
+                      <p className="text-xs text-[#d4a03a]">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center reveal">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#f3e9d8] font-heading mb-4">
+              Book Your Safari Today
+            </h3>
+            <p className="text-[#f3e9d8]/70 max-w-2xl mx-auto mb-8">
+              Don't settle for another uninformed guide. Walk with a Cambridge-trained ornithologist, a BBC documentary consultant, a Maasai warrior, and a storyteller who was born on the land you're exploring.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/254722572068"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105"
+                style={{ backgroundColor: "#d4a03a", color: "#1a1209" }}
+              >
+                <MessageCircle size={18} /> Book Your Safari Now
+              </a>
+              <a
+                href="#safaris"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm border border-[#d4a03a]/30 text-[#d4a03a] hover:bg-[#d4a03a]/10 transition-all"
+              >
+                Explore Our Safaris <ArrowRight size={18} />
+              </a>
+            </div>
+            <p className="text-[#d4a03a] text-xl font-bold mt-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Karibu. Welcome home.
+            </p>
+          </div>
+
+          {/* Hashtags */}
+          <div className="mt-12 flex flex-wrap gap-2 justify-center">
+            {[
+              "#MaasaiSafariGuide", "#KenyaSafari", "#BirdingSafari", "#LakeElementaita",
+              "#MaasaiWarriorsSafaris", "#OrnithologicalGuide", "#BigFiveSafari",
+              "#CulturalSafari", "#WalkingSafari", "#MaasaiCulture", "#KenyaBirding",
+              "#SafariGuide", "#RiftValley", "#FlamingoLake", "#BlackHeron",
+              "#WildlifeSafariKenya", "#AuthenticSafari", "#MaasaiWarrior",
+              "#KaribuKenya", "#BirdwatchingKenya", "#SafariBooking", "#EastAfricaSafari",
+            ].map((tag, i) => (
+              <span key={i} className="text-xs text-[#f3e9d8]/40">{tag}</span>
+            ))}
           </div>
         </div>
       </section>
