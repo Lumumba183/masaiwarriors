@@ -222,8 +222,31 @@ export default function App() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 3000);
+
+    const form = e.target as HTMLFormElement;
+    const formDataObj = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formDataObj as any).toString(),
+    })
+      .then(() => {
+        setFormSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          destination: "",
+          dates: "",
+          groupSize: "",
+          message: "",
+        });
+        setTimeout(() => setFormSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        alert("Something went wrong. Please try again or contact us directly.");
+      });
   };
 
   return (
@@ -1054,9 +1077,20 @@ export default function App() {
             {/* Right — form */}
             <div className="reveal">
               <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
                 onSubmit={handleFormSubmit}
                 className="space-y-5 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
               >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden" style={{ display: "none" }}>
+                  <label>
+                    Don't fill this out if you're human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 {formSubmitted && (
                   <div className="p-4 rounded-lg bg-green-500/20 text-green-400 text-sm text-center">
                     Thank you! We'll be in touch shortly.

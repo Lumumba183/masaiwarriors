@@ -12,6 +12,16 @@
     <title>Maasai Warriors Tours & Safaris - Luxury East African Safaris</title>
   </head>
   <body>
+    <!-- Hidden form for Netlify detection (React SPA workaround) -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="destination" />
+      <input type="text" name="dates" />
+      <input type="text" name="groupSize" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
