@@ -178,12 +178,28 @@ export default function App() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    safari: "",
     destination: "",
     dates: "",
     groupSize: "",
     message: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  /* Read safari from URL query params */
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.includes("?")) {
+      const queryString = hash.split("?")[1];
+      const params = new URLSearchParams(queryString);
+      const safariParam = params.get("safari");
+      if (safariParam) {
+        setFormData((prev) => ({ ...prev, safari: decodeURIComponent(safariParam) }));
+        // Clear the query param from URL for cleanliness
+        window.history.replaceState({}, document.title, window.location.pathname + window.location.hash.split("?")[0]);
+      }
+    }
+  }, []);
 
   /* Scroll reveal */
   useEffect(() => {
@@ -236,6 +252,7 @@ export default function App() {
         setFormData({
           name: "",
           email: "",
+          safari: "",
           destination: "",
           dates: "",
           groupSize: "",
@@ -274,9 +291,7 @@ export default function App() {
                 </a>
               ))}
               <a
-                href="https://wa.me/254722572068"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#safaris"
                 className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                 style={{ backgroundColor: "#d4a03a", color: "#1a1209" }}
               >
@@ -309,9 +324,7 @@ export default function App() {
               </a>
             ))}
             <a
-              href="https://wa.me/254722572068"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#safaris"
               className="inline-block mt-4 px-5 py-2.5 rounded-full text-sm font-semibold"
               style={{ backgroundColor: "#d4a03a", color: "#1a1209" }}
               onClick={() => setMobileOpen(false)}
@@ -491,13 +504,11 @@ export default function App() {
               wildebeest and zebras thunder across the Serengeti-Mara ecosystem.
             </p>
             <a
-              href="https://wa.me/254722572068"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#safaris"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105"
               style={{ backgroundColor: "#d4a03a", color: "#1a1209" }}
             >
-              Inquire Now <ArrowRight size={16} />
+              Explore Safaris <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -691,13 +702,11 @@ export default function App() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/254722572068"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#safaris"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105"
                 style={{ backgroundColor: "#d4a03a", color: "#1a1209" }}
               >
-                <MessageCircle size={18} /> Book Your Safari Now
+                <ArrowRight size={18} /> Explore Safari Packages
               </a>
               <a
                 href="#safaris"
@@ -772,14 +781,14 @@ export default function App() {
                   </div>
                   <div className="flex gap-3">
                     <a
-                      href="#contact"
+                      href={`#contact?safari=${encodeURIComponent(s.title)}`}
                       className="flex-1 text-center py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:opacity-90"
                       style={{ backgroundColor: "#1a1209", color: "#f3e9d8" }}
                     >
-                      Inquire
+                      Book This Safari
                     </a>
                     <a
-                      href="https://wa.me/254722572068"
+                      href={`https://wa.me/254722572068?text=${encodeURIComponent(`Hi! I'm interested in the ${s.title} (${s.price}). Please send me details.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 text-center py-2.5 rounded-lg text-sm font-semibold border transition-all duration-300 hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"
@@ -1127,6 +1136,58 @@ export default function App() {
                       required
                     />
                   </div>
+                </div>
+                <div>
+                  <label className="block text-xs text-[#f3e9d8]/50 uppercase tracking-wider mb-2">
+                    Safari Package
+                  </label>
+                  {formData.safari ? (
+                    <div className="form-input flex items-center justify-between bg-[#d4a03a]/10 border-[#d4a03a]/30">
+                      <span className="text-[#f3e9d8]">{formData.safari}</span>
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, safari: "" })}
+                        className="text-xs text-[#d4a03a] hover:text-white transition-colors"
+                      >
+                        Change
+                      </button>
+                    </div>
+                  ) : (
+                    <select
+                      className="form-input appearance-none"
+                      value={formData.safari}
+                      onChange={(e) =>
+                        setFormData({ ...formData, safari: e.target.value })
+                      }
+                    >
+                      <option value="" className="bg-[#1a1209]">
+                        Select a safari package (optional)
+                      </option>
+                      <option value="Classic Kenya Safari" className="bg-[#1a1209]">
+                        Classic Kenya Safari
+                      </option>
+                      <option value="Serengeti Migration Safari" className="bg-[#1a1209]">
+                        Serengeti Migration Safari
+                      </option>
+                      <option value="Gorilla Trekking Adventure" className="bg-[#1a1209]">
+                        Gorilla Trekking Adventure
+                      </option>
+                      <option value="Zanzibar Beach Escape" className="bg-[#1a1209]">
+                        Zanzibar Beach Escape
+                      </option>
+                      <option value="Multi-Country Expedition" className="bg-[#1a1209]">
+                        Multi-Country Expedition
+                      </option>
+                      <option value="Custom Private Safari" className="bg-[#1a1209]">
+                        Custom Private Safari
+                      </option>
+                    </select>
+                  )}
+                  <input
+                    type="hidden"
+                    name="safari"
+                    value={formData.safari}
+                  />
                 </div>
                 <div>
                   <label className="block text-xs text-[#f3e9d8]/50 uppercase tracking-wider mb-2">
