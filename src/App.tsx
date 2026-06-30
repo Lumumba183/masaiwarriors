@@ -186,21 +186,6 @@ export default function App() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  /* Read safari from URL query params */
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.includes("?")) {
-      const queryString = hash.split("?")[1];
-      const params = new URLSearchParams(queryString);
-      const safariParam = params.get("safari");
-      if (safariParam) {
-        setFormData((prev) => ({ ...prev, safari: decodeURIComponent(safariParam) }));
-        // Clear the query param from URL for cleanliness
-        window.history.replaceState({}, document.title, window.location.pathname + window.location.hash.split("?")[0]);
-      }
-    }
-  }, []);
-
   /* Scroll reveal */
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -780,13 +765,22 @@ export default function App() {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <a
-                      href={`#contact?safari=${encodeURIComponent(s.title)}`}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormData((prev) => ({ ...prev, safari: s.title }));
+                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                        window.history.replaceState(
+                          {},
+                          document.title,
+                          `${window.location.pathname}#contact`
+                        );
+                      }}
                       className="flex-1 text-center py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:opacity-90"
                       style={{ backgroundColor: "#1a1209", color: "#f3e9d8" }}
                     >
                       Book This Safari
-                    </a>
+                    </button>
                     <a
                       href={`https://wa.me/254722572068?text=${encodeURIComponent(`Hi! I'm interested in the ${s.title} (${s.price}). Please send me details.`)}`}
                       target="_blank"
