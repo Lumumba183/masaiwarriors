@@ -259,9 +259,9 @@ export default function App() {
           <div className="flex items-center justify-between h-20">
             <a href="#home" className="flex items-center gap-3">
               <img
-                src="/logo.jpg"
+                src="/logo.webp"
                 alt="Maasai Warriors Tours"
-                className="h-12 w-12 rounded-full object-cover"
+                className="h-16 w-16"
               />
               <span className="text-[#f3e9d8] font-bold text-lg hidden sm:block font-heading">
                 Maasai Warriors
@@ -364,9 +364,9 @@ export default function App() {
         <div className="absolute inset-0 flex flex-col justify-end pb-20 sm:pb-28 px-4 sm:px-8 lg:px-16">
           <div className="max-w-3xl reveal active">
             <img
-              src="/logo.jpg"
+              src="/logo.webp"
               alt="Maasai Warriors"
-              className="h-16 w-16 rounded-full object-cover mb-6"
+              className="h-28 w-28 sm:h-36 sm:w-36 mb-6 drop-shadow-2xl"
             />
             <p className="label-accent mb-4">Luxury East African Safaris</p>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-[#d4a03a] tracking-wide leading-tight mb-2 font-heading uppercase">
@@ -430,9 +430,9 @@ export default function App() {
       <section className="py-20 sm:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center reveal">
           <img
-            src="/logo.jpg"
+            src="/logo.webp"
             alt="Maasai Warriors"
-            className="h-20 w-20 rounded-full object-cover mx-auto mb-8"
+            className="h-32 w-32 sm:h-40 sm:w-40 mx-auto mb-8"
           />
           <p className="label-accent mb-4">Our Philosophy</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a1209] mb-8 font-heading leading-tight">
@@ -1344,9 +1344,9 @@ export default function App() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/logo.jpg"
+                  src="/logo.webp"
                   alt="Maasai Warriors"
-                  className="h-10 w-10 rounded-full object-cover"
+                  className="h-16 w-16"
                 />
                 <span className="text-[#f3e9d8] font-bold font-heading">
                   Maasai Warriors
